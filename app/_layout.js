@@ -1,14 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Stack } from "expo-router";
 
-const _layout = () => {
-  return (
-    <View>
-      <Text>_layout</Text>
-    </View>
-  )
+export default function RootLayout() {
+    return (
+        <Stack screenOptions={{
+        headerStyle: { backgroundColor: '#111827' },
+        headerTintColor: '#fff',
+        headerTitleStyle: { fontWeight: '800' },
+        contentStyle: { backgroundColor: '#F8FAFC' },
+        }}>
+            <Stack.Screen name="index" options={{ title: 'Tasks' }} />
+            <Stack.Screen name="task/[id]" options={{ title: 'Task Detail' }} />
+            <Stack.Screen name="task/edit" options={{ title: 'Add / Edit Task' }} />
+        </Stack>
+    );
 }
-
-export default _layout
-
-const styles = StyleSheet.create({})
